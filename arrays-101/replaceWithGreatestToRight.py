@@ -1,5 +1,6 @@
 class Solution:
-    def replaceElements(self, arr: List[int]) -> List[int]:
+    # sol1 
+    def replaceElements1(self, arr: List[int]) -> List[int]:
         if len(arr) == 1:
             arr[0] = -1
         else:
@@ -12,4 +13,13 @@ class Solution:
                 # replace ith element with curMax 
                 arr[i] = curMax
             
+        return arr
+    #sol2 
+    def replaceElements(self, arr: List[int]) -> List[int]:
+        maxNum = -1
+        for i in range(len(arr)-1,-1,-1):
+            hold = arr[i]
+            arr[i] = maxNum
+            if hold > maxNum: 
+                maxNum = hold
         return arr
