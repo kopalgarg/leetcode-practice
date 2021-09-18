@@ -10,11 +10,14 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-        if not head: return False
-        slow = head
-        fast = head.next
-        while slow and fast and fast.next and fast != slow:
+        slow, fast = head, head  # start at the same point
+        while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-        return slow==fast
+            if slow == fast:
+                return True
+        return False
+
+    # linear time, constant space O(N) where N is the length of linked list
+                
         
